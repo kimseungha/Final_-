@@ -34,9 +34,15 @@ $(document).ready(function(){
       $(itemBox).css("margin-left",num);
     }
     num++;
-    console.log(num);
+    var sdIdx=num;
     $(itemBox).stop().animate({marginLeft:-468*num},500);
-    return false;
+    // return false;
+    if(sdIdx==total){
+      sdIdx=0;
+    }
+    $(".main_slider_under_btn a").removeClass("on");
+    $(".main_slider_under_btn a").eq(sdIdx).addClass("on");
+
   })
 
   $(".mainPre").on("click",function(){
@@ -45,18 +51,18 @@ $(document).ready(function(){
       $(itemBox).css("margin-left",-468*num);
     }
     num--;
-    console.log(num);
+    var sdIdx=num;
     $(itemBox).stop().animate({marginLeft:-468*num},500);
-    return false;
-  })
-  //1-3 메인 슬라이더 언더버튼
-  $(".main_slider_under_btn a").click(function(){
+    // return false;
     $(".main_slider_under_btn a").removeClass("on");
-    $(this).addClass("on");
-    //슬라이드 *하기 찾기 위한 위치값 가져오기
-    var idx = $(this).index();
-    slide(468,idx);
+    $(".main_slider_under_btn a").eq(sdIdx).addClass("on");
+
   })
+
+
+
+  //1-3 메인 슬라이더 언더버튼
+
 
   //2-1 공지사항 슬라이더 버튼
   $(".notice_slider_under_btn a").click(function(){
@@ -65,24 +71,36 @@ $(document).ready(function(){
     var idx = $(this).index();
     slide2(465,idx);
   })
-  var noticeidx = 0;
 
+  var noticeidx = 0;
   $(".notice_slider .notice_pre").click(function(){
     noticeidx--;
+    var sd2Idx= noticeidx;
     slide2(465,noticeidx);
     if(noticeidx==-1){
       slide2(0,noticeidx);
       noticeidx=0;
     }
+    if(sd2Idx==-1){
+      sd2Idx=0;
+    }
+    $(".notice_slider_under_btn a").removeClass("on");
+    $(".notice_slider_under_btn a").eq(sd2Idx).addClass("on");
   })
 
   $(".notice_slider .notice_nxt").click(function(){
     noticeidx++;
+    var sd2Idx= noticeidx;
     slide2(465,noticeidx);
     if(noticeidx==4){
       slide2(0,noticeidx);
       noticeidx=0;
     }
+    if(sd2Idx==4){
+      sd2Idx=0;
+    }
+    $(".notice_slider_under_btn a").removeClass("on");
+    $(".notice_slider_under_btn a").eq(sd2Idx).addClass("on");
   })
 
   //3-1 뉴스 동영상 슬라이더 버튼
@@ -96,20 +114,32 @@ $(document).ready(function(){
 
   $(".news_video_slider .news_video_slide_pre_btn").click(function(){
     newsidx--;
+    var sd3Idx= newsidx;
     slide3(540,newsidx);
     if(newsidx==-1){
       slide3(0,newsidx);
       newsidx=0;
     }
+    if(sd3Idx==-1){
+      sd3Idx=0;
+    }
+    $(".news_slider_btn a").removeClass("on");
+    $(".news_slider_btn a").eq(sd3Idx).addClass("on");
   })
 
   $(".news_video_slider .news_video_slide_next_btn").click(function(){
     newsidx++;
+    var sd3Idx= newsidx;
       slide3(540,newsidx);
     if(newsidx==3){
         slide3(0,newsidx);
       newsidx=0;
     }
+    if(sd3Idx==3){
+      sd3Idx=0;
+    }
+    $(".news_slider_btn a").removeClass("on");
+    $(".news_slider_btn a").eq(sd3Idx).addClass("on");
   })
 
   //4-1 프로모 슬라이더 버튼
