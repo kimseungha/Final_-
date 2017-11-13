@@ -147,7 +147,7 @@ input {
   margin-bottom: 30px;
   position: relative;
 }
-.main_slider a{cursor: pointer;}
+/* .main_slider a{cursor: pointer;} */
 .main_slider>a:first-child {
   z-index: 999;
   width: 100px;
@@ -387,7 +387,7 @@ input {
   height: 25px;
 }
 .notice_slider_under_btn a{
-  cursor: pointer;
+/*   cursor: pointer; */
   float: left;
   display:inline-block;
   margin-left:6px;
@@ -617,7 +617,7 @@ input {
 }
 
 .news_slider_btn a{
-  cursor: pointer;
+/*   cursor: pointer; */
   float: left;
   display:inline-block;
   margin-left:6px;
