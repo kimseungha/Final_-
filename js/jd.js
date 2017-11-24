@@ -14,7 +14,6 @@ $(document).ready(function(){
     $(".notice_slider_under_btn a").eq(0).addClass("on");
     $(".news_slider_btn a").eq(0).addClass("on");
 
-
   //1-1메인 슬라이더 좌우버튼
   //1-2메인 슬라이더 무한 롤링
   var num=0;
@@ -25,10 +24,10 @@ $(document).ready(function(){
   itemBox.append(copyObj);
 
   var total = $(items).length;
-  console.log(total);
-  console.log(copyObj);
+
 
   $(".mainNxt").on("click",function(){
+    clearInterval(start);
     if(num==total){ // 클릭할때마다 num++ 되다가 if에서 조건이 충족되면 걸린다.
       num = 0;
       $(itemBox).css("margin-left",num);
@@ -44,7 +43,6 @@ $(document).ready(function(){
     $(".main_slider_under_btn a").eq(sdIdx).addClass("on");
 
   })
-
   $(".mainPre").on("click",function(){
     if(num==0){ // 클릭할때마다 num++ 되다가 if에서 조건이 충족되면 걸린다.
       num = total;
@@ -56,13 +54,25 @@ $(document).ready(function(){
     // return false;
     $(".main_slider_under_btn a").removeClass("on");
     $(".main_slider_under_btn a").eq(sdIdx).addClass("on");
-
   })
 
+  //1-3메인 슬라이더 자동 슬라이드 setInterval
+  var start = setInterval(function(){
+    if(num==total){ // 클릭할때마다 num++ 되다가 if에서 조건이 충족되면 걸린다.
+      num = 0;
+      $(itemBox).css("margin-left",num);
+    }
+    num++;
+    var sdIdx=num;
+    $(itemBox).stop().animate({marginLeft:-468*num},500);
+    // return false;
+    if(sdIdx==total){
+      sdIdx=0;
+    }
+    $(".main_slider_under_btn a").removeClass("on");
+    $(".main_slider_under_btn a").eq(sdIdx).addClass("on");
 
-
-  //1-3 메인 슬라이더 언더버튼
-
+  },2000)
 
   //2-1 공지사항 슬라이더 버튼
   $(".notice_slider_under_btn a").click(function(){
