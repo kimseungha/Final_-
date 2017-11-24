@@ -5,8 +5,8 @@ $(document).ready(function(){
     $(this).index();
     var gnbLi =   $(".gnb .gnb_ul > li").eq(i);
     var gnbSubmenu = $(".gnb .gnb_ul li .submenu").eq(i);
-    $(gnbLi).click(function(){
-      $(gnbSubmenu).slideToggle("fast");
+    $(gnbLi).hover(function(){
+      $(gnbSubmenu).stop().slideToggle("fast");
     })
   })
   //슬라이더 버튼 첫번째 모두 활성화
