@@ -4,10 +4,7 @@ header,footer,article,section{display:block;}
 * {margin:0;padding:0;}
 img {margin:0;padding:0;border:0;vertical-align:top;max-width:100%;height:auto;}
 ul {list-style: none;}
-a {color: #222;text-decoration: none;ma}
-a:hover {}
-/*-pie-border-radius:10px 0 0 10px;
-  behavior:url('../PIE.htc')*/
+a {color: #222;text-decoration: none;}
 
 body {font-family: "나눔스퀘어";font-size: 18px;}
 #page {width: 100%;}
@@ -668,7 +665,9 @@ input {
   font-weight: bold;
   text-align: center;
 }
-
+.news_video_slider_items ul li img{
+  width:260px;
+}
 /*sns영역*/
 
 .news_sns {
